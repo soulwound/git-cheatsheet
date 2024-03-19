@@ -25,7 +25,13 @@
 - Все хеши, а также таблицу соответствий хеш → информация о коммите Git хранит в папке .git.
 ---
 ### Жизненный _цикл_ файла в __Git__
-![image](https://github.com/soulwound/git-cheatsheet/assets/96583092/bcc458b0-8a63-43f9-9291-e0aa95345aa2)
+```mermaid
+graph LR;
+  untracked -- "git add" --> staged;
+  staged    -- "git commit"     --> tracked/comitted
+  tracked/comitted -- "changes" --> modified
+  modified -- "git add" --> staged
+```
 Большинство файлов в проектах «шагает» по следующему циклу: «изменён» → «добавлен в список на коммит» → «закоммичен» → «изменён» → и так далее.
 
 ---
